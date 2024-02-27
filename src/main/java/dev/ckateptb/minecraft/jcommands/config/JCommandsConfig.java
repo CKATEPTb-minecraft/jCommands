@@ -30,6 +30,8 @@ public class JCommandsConfig extends HoconConfig implements Listener, Config.Aut
     private String feed = "&aYour hunger has been quenched.";
     private String feedOther = "&aYou have successfully satisfied the hunger of &e%player_name%&a.";
     private String feedError = "&cAn external event prevented the hunger from being satisfied.";
+    private String gameMode = "&aYour game mode has been changed to &e%gamemode%&a.";
+    private String gameModeOther = "&aYou have changed the game mode of player &e%player_name%&a to &e%gamemode%&a.";
 
     @Override
     public File getFile() {
