@@ -36,6 +36,12 @@ public class JCommandsConfig extends HoconConfig implements Listener, Config.Aut
     private String healOther = "&aYou have successfully healed the &e%player_name%&a.";
     private String healDead = "&cYou can't heal the dead.";
     private String healError = "&cAn external event prevented heal.";
+    private String top = "&aYou have been teleported to the top solid/liquid block of the world relative to your location.";
+    private String topOther = "&aYou have successfully teleported &e%player_name%&a to the top solid/liquid block relative to his location.";
+    private String flyAllow = "&aFlight mode was &eenabled&a.";
+    private String flyDeny = "&aFlight mode was &edisabled&a.";
+    private String flyAllowOther = "&aFlight mode was &eenabled&a for &e%player_name%&a.";
+    private String flyDenyOther = "&aFlight mode was &edisabled&a for &e%player_name%&a.";
 
     @Override
     public File getFile() {
