@@ -32,6 +32,10 @@ public class JCommandsConfig extends HoconConfig implements Listener, Config.Aut
     private String feedError = "&cAn external event prevented the hunger from being satisfied.";
     private String gameMode = "&aYour game mode has been changed to &e%gamemode%&a.";
     private String gameModeOther = "&aYou have changed the game mode of player &e%player_name%&a to &e%gamemode%&a.";
+    private String heal = "&aYou have been healed.";
+    private String healOther = "&aYou have successfully healed the &e%player_name%&a.";
+    private String healDead = "&cYou can't heal the dead.";
+    private String healError = "&cAn external event prevented heal.";
 
     @Override
     public File getFile() {
