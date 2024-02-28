@@ -23,7 +23,7 @@ public class GameModeSurvivalCommand extends GameModeCommand {
         this.gamemode(player);
     }
 
-    @CommandMethod("gamemode survival")
+    @CommandMethod("gamemode|gm survival")
     @CommandPermission("jcommands.gamemode.self.survival")
     public void gamemode(Player player) {
         this.gmOther(player, player);
@@ -35,7 +35,7 @@ public class GameModeSurvivalCommand extends GameModeCommand {
         this.gamemodeOther(sender, target);
     }
 
-    @CommandMethod("gamemode survival <target>")
+    @CommandMethod("gamemode|gm survival <target>")
     @CommandPermission("jcommands.gamemode.other.survival")
     public void gamemodeOther(CommandSender sender, @Argument("target") Player target) {
         this.apply(sender, GameMode.SURVIVAL, target);

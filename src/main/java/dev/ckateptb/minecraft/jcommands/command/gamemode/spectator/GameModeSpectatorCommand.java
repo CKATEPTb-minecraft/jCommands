@@ -23,7 +23,7 @@ public class GameModeSpectatorCommand extends GameModeCommand {
         this.gamemode(player);
     }
 
-    @CommandMethod("gamemode spectator")
+    @CommandMethod("gamemode|gm spectator")
     @CommandPermission("jcommands.gamemode.self.spectator")
     public void gamemode(Player player) {
         this.gmOther(player, player);
@@ -35,7 +35,7 @@ public class GameModeSpectatorCommand extends GameModeCommand {
         this.gamemodeOther(sender, target);
     }
 
-    @CommandMethod("gamemode spectator <target>")
+    @CommandMethod("gamemode|gm spectator <target>")
     @CommandPermission("jcommands.gamemode.other.spectator")
     public void gamemodeOther(CommandSender sender, @Argument("target") Player target) {
         this.apply(sender, GameMode.SPECTATOR, target);

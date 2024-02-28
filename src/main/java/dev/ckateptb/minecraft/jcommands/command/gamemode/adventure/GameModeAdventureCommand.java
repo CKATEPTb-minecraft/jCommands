@@ -23,7 +23,7 @@ public class GameModeAdventureCommand extends GameModeCommand {
         this.gamemode(player);
     }
 
-    @CommandMethod("gamemode adventure")
+    @CommandMethod("gamemode|gm adventure")
     @CommandPermission("jcommands.gamemode.self.adventure")
     public void gamemode(Player player) {
         this.gmOther(player, player);
@@ -35,7 +35,7 @@ public class GameModeAdventureCommand extends GameModeCommand {
         this.gamemodeOther(sender, target);
     }
 
-    @CommandMethod("gamemode adventure <target>")
+    @CommandMethod("gamemode|gm adventure <target>")
     @CommandPermission("jcommands.gamemode.other.adventure")
     public void gamemodeOther(CommandSender sender, @Argument("target") Player target) {
         this.apply(sender, GameMode.ADVENTURE, target);

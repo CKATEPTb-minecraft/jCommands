@@ -23,7 +23,7 @@ public class GameModeCreativeCommand extends GameModeCommand {
         this.gamemode(player);
     }
 
-    @CommandMethod("gamemode creative")
+    @CommandMethod("gamemode|gm creative")
     @CommandPermission("jcommands.gamemode.self.creative")
     public void gamemode(Player player) {
         this.gmOther(player, player);
@@ -35,7 +35,7 @@ public class GameModeCreativeCommand extends GameModeCommand {
         this.gamemodeOther(sender, target);
     }
 
-    @CommandMethod("gamemode creative <target>")
+    @CommandMethod("gamemode|gm creative <target>")
     @CommandPermission("jcommands.gamemode.other.creative")
     public void gamemodeOther(CommandSender sender, @Argument("target") Player target) {
         this.apply(sender, GameMode.CREATIVE, target);
