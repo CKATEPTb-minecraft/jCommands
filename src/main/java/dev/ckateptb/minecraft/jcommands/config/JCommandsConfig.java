@@ -42,6 +42,10 @@ public class JCommandsConfig extends HoconConfig implements Listener, Config.Aut
     private String flyDeny = "&aFlight mode was &edisabled&a.";
     private String flyAllowOther = "&aFlight mode was &eenabled&a for &e%player_name%&a.";
     private String flyDenyOther = "&aFlight mode was &edisabled&a for &e%player_name%&a.";
+    private String near = "&aPlayers nearby: %entries%&a.";
+    private String nearEntry = "&e%player_name% &8(%distance%)";
+    private String nearDivider = "&a, ";
+    private String nearEmpty = "&8empty";
 
     @Override
     public File getFile() {
