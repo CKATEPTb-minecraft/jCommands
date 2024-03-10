@@ -46,6 +46,7 @@ public class JCommandsConfig extends HoconConfig implements Listener, Config.Aut
     private String nearEntry = "&e%player_name% &8(%distance%)";
     private String nearDivider = "&a, ";
     private String nearEmpty = "&8empty";
+    private String invseeTitle = "Inventory Spy: %player_name%";
 
     @Override
     public File getFile() {
