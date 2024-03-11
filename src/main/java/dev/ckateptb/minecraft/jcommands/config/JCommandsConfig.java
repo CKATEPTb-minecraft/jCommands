@@ -51,8 +51,13 @@ public class JCommandsConfig extends HoconConfig implements Listener, Config.Aut
     private String godOff = "&aGod mode was &edisabled&a.";
     private String godOnOther = "&aGod mode was &eenabled&a for &e%player_name%&a.";
     private String godOffOther = "&aGod mode was &edisabled&a for &e%player_name%&a.";
+    private String speedFly = "&aYour flight speed is set to &e%speed%&a.";
+    private String speedWalk = "&aYour walk speed is set to &e%speed%&a.";
+    private String speedFlyOther = "&aThe &e%player_name%&a flight speed is set to &e%speed%&a.";
+    private String speedWalkOther = "&aThe &e%player_name%&a walk speed is set to &e%speed%&a.";
 
     @Override
+
     public File getFile() {
         return JCommands.getPlugin().getDataFolder().toPath().resolve("config.conf").toFile();
     }
