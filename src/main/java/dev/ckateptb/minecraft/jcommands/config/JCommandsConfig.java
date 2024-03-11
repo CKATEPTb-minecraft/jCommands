@@ -55,6 +55,8 @@ public class JCommandsConfig extends HoconConfig implements Listener, Config.Aut
     private String speedWalk = "&aYour walk speed is set to &e%speed%&a.";
     private String speedFlyOther = "&aThe &e%player_name%&a flight speed is set to &e%speed%&a.";
     private String speedWalkOther = "&aThe &e%player_name%&a walk speed is set to &e%speed%&a.";
+    private String repair = "&aThe item in hand has been repaired.";
+    private String repairAll = "&aItems have been repaired.";
 
     @Override
 
