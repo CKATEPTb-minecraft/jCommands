@@ -59,6 +59,11 @@ public class JCommandsConfig extends HoconConfig implements Listener, Config.Aut
     private String repairAll = "&aItems have been repaired.";
     private String sudo = "&aForces sending of a command on behalf of &e%player_name%&a.";
     private String sudoChat = "&aForces sending of a message on behalf of &e%player_name%&a.";
+    private String mobKill = "&e%count% &amobs within a radius of &e%radius% &awere killed.";
+    private String mobKillWorld = "&e%count% &amobs in world &e%world% &ahave been killed.";
+    private String mobKillAll = "&e%count% &amobs were killed.";
+    private String mobSpawn = "&e%count% &amobs were successfully spawned.";
+    private String mobSpawnError = "&cYou must specify the living entity type.";
 
     @Override
 
