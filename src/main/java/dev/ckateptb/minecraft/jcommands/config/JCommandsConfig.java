@@ -47,6 +47,10 @@ public class JCommandsConfig extends HoconConfig implements Listener, Config.Aut
     private String nearDivider = "&a, ";
     private String nearEmpty = "&8empty";
     private String invseeTitle = "Inventory Spy: %player_name%";
+    private String godOn = "&aGod mode was &eenabled&a.";
+    private String godOff = "&aGod mode was &edisabled&a.";
+    private String godOnOther = "&aGod mode was &eenabled&a for &e%player_name%&a.";
+    private String godOffOther = "&aGod mode was &edisabled&a for &e%player_name%&a.";
 
     @Override
     public File getFile() {
