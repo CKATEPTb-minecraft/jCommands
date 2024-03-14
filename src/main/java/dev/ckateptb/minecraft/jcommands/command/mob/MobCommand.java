@@ -3,8 +3,6 @@ package dev.ckateptb.minecraft.jcommands.command.mob;
 import com.google.common.base.Predicates;
 import dev.ckateptb.minecraft.jcommands.JCommands;
 import dev.ckateptb.minecraft.jcommands.config.JCommandsConfig;
-import dev.ckateptb.minecraft.jyraf.async.tracker.entity.EntityTrackerService;
-import dev.ckateptb.minecraft.jyraf.async.tracker.entity.world.WorldRepository;
 import dev.ckateptb.minecraft.jyraf.colider.Colliders;
 import dev.ckateptb.minecraft.jyraf.command.Command;
 import dev.ckateptb.minecraft.jyraf.component.Text;
@@ -14,6 +12,8 @@ import dev.ckateptb.minecraft.jyraf.internal.commands.annotations.CommandMethod;
 import dev.ckateptb.minecraft.jyraf.internal.commands.annotations.CommandPermission;
 import dev.ckateptb.minecraft.jyraf.internal.commands.annotations.specifier.Range;
 import dev.ckateptb.minecraft.jyraf.math.ImmutableVector;
+import dev.ckateptb.minecraft.jyraf.world.WorldService;
+import dev.ckateptb.minecraft.jyraf.world.repository.WorldRepository;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -31,7 +31,7 @@ import reactor.core.publisher.Mono;
 public class MobCommand implements Command {
     private final JCommands plugin;
     private final JCommandsConfig config;
-    private final EntityTrackerService entityTrackerService;
+    private final WorldService worldService;
 
     @CommandMethod("mob spawn <type> [amount] [location]")
     @CommandPermission("jcommands.mob.spawn")
@@ -78,7 +78,7 @@ public class MobCommand implements Command {
         this.mobKill(Flux.fromIterable(Bukkit.getWorlds())
                         .map(World::getUID)
                         .filter(value -> world == null || value.equals(world.getUID()))
-                        .flatMap(this.entityTrackerService::getWorld)
+                        .flatMap(this.worldService::getWorld)
                         .flatMap(WorldRepository::getEntities))
                 .subscribe(count -> {
                     if (world != null) {

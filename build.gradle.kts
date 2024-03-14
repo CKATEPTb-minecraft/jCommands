@@ -26,7 +26,7 @@ repositories {
 dependencies {
     paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT")
 
-    compileOnly("dev.ckateptb.minecraft:Jyraf-Core:1.11.2-SNAPSHOT")
+    compileOnly("dev.ckateptb.minecraft:Jyraf-Core:1.13.0-SNAPSHOT")
 
     compileOnly("org.projectlombok:lombok:+")
     annotationProcessor("org.projectlombok:lombok:+")
