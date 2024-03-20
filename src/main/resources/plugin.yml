@@ -1,7 +1,7 @@
 name: '${projectName}'
 version: '${projectVersion}'
 main: '${projectMainClass}'
-api-version: 1.19
+api-version: 1.16
 authors: [ CKATEPTb ]
 # TODO Configure description
 description: Project template aimed at creating minecraft plugins with the ability to publish to the maven repository.
