@@ -10,7 +10,7 @@ plugins {
     id("com.github.johnrengelman.shadow").version("7.1.0")
     id("io.github.gradle-nexus.publish-plugin").version("1.1.0")
     // https://github.com/PaperMC/paperweight
-    id("io.papermc.paperweight.userdev").version("1.5.11")
+//    id("io.papermc.paperweight.userdev").version("1.5.11")
 }
 group = "dev.ckateptb.minecraft"
 version = "1.0.0-SNAPSHOT"
@@ -21,12 +21,14 @@ val internal = "${rootPackage}.internal"
 repositories {
     mavenCentral()
     maven("https://repo.jyraf.com/repository/maven-snapshots/")
+    maven("https://repo.codemc.io/repository/nms/")
 }
 
 dependencies {
-    paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT")
+    // paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT")
+    compileOnly("com.destroystokyo.paper:paper:1.16.5-R0.1-SNAPSHOT")
 
-    compileOnly("dev.ckateptb.minecraft:Jyraf-Core:1.13.0-SNAPSHOT")
+    compileOnly("dev.ckateptb.minecraft:Jyraf-Core:1.16.0-SNAPSHOT")
 
     compileOnly("org.projectlombok:lombok:+")
     annotationProcessor("org.projectlombok:lombok:+")
@@ -37,14 +39,14 @@ tasks {
         archiveClassifier.set("")
     }
     build {
-        dependsOn(reobfJar, shadowJar)
+        dependsOn(/*reobfJar, */shadowJar)
     }
     publish {
-        dependsOn(reobfJar, shadowJar)
+        dependsOn(/*reobfJar, */shadowJar)
     }
     withType<JavaCompile> {
         options.encoding = Charsets.UTF_8.name()
-        options.release.set(17)
+        options.release.set(16)
     }
     named<Copy>("processResources") {
         filesMatching("plugin.yml") {
@@ -62,7 +64,7 @@ tasks {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(16))
     }
 }
 

@@ -9,11 +9,11 @@ import dev.ckateptb.minecraft.jyraf.internal.commands.annotations.Argument;
 import dev.ckateptb.minecraft.jyraf.internal.commands.annotations.CommandMethod;
 import dev.ckateptb.minecraft.jyraf.internal.commands.annotations.CommandPermission;
 import lombok.RequiredArgsConstructor;
-import net.kyori.adventure.text.JoinConfiguration;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.text.DecimalFormat;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -35,16 +35,14 @@ public class NearCommand implements Command {
                             Location second = o2.getLocation();
                             return (int) (first.distanceSquared(location) - second.distanceSquared(location));
                         })
-                        .map(player -> Text.of(this.config.getNearEntry(),
-                                "%player_name%", player.getName(),
-                                "%distance%", this.format.format(player.getLocation().distance(location))
-                        ))
                         .collectList()
                         .map(players -> {
                             if (players.isEmpty()) return Text.of(this.config.getNearEmpty());
-                            net.kyori.adventure.text.Component separator = Text.of(this.config.getNearDivider());
-                            JoinConfiguration configuration = JoinConfiguration.separator(separator);
-                            return net.kyori.adventure.text.Component.join(configuration, players);
+                            return Text.of(players.stream().map(player -> this.config.getNearEntry()
+                                            .replaceAll("%player_name%", player.getName())
+                                            .replaceAll("%distance%", this.format
+                                                    .format(player.getLocation().distance(location))))
+                                    .collect(Collectors.joining(this.config.getNearDivider())));
                         })
                         .subscribe(result -> sender.sendMessage(Text.of(this.config.getNear())
                                 .replaceText(builder -> builder

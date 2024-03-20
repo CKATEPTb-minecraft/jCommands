@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
+import org.bukkit.inventory.meta.ItemMeta;
 
 @Component
 @RequiredArgsConstructor
@@ -31,9 +32,11 @@ public class RepairCommand implements Command {
     }
 
     private void repair(ItemStack itemStack) {
-        if (itemStack != null && itemStack.getItemMeta() instanceof Damageable damageable) {
+        if (itemStack == null) return;
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta instanceof Damageable damageable) {
             damageable.setDamage(0);
-            itemStack.setItemMeta(damageable);
+            itemStack.setItemMeta(itemMeta);
         }
     }
 }
